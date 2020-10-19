@@ -4,7 +4,7 @@ import styles from './Kitchen.module.scss';
 
 const Kitchen = () => (
   <div className={styles.component}>
-    <h2>Login view</h2>
+    <h2>Kitchen view</h2>
   </div>
 );
 
