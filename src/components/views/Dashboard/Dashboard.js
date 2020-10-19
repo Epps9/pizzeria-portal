@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+//import propTypes from 'prop-types';
 import styles from './Dashboard.module.scss';
 
 const Dashboard = () => (
