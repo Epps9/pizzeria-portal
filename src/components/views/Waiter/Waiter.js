@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 
 
 const demoContent = [
-  {id: '1', status: 'free', order: null},
+  {id: '1', status: 'free', hour: 12},
   {id: '2', status: 'thinking', order: null},
   {id: '3', status: 'ordered', order: 123},
   {id: '4', status: 'prepared', order: 234},

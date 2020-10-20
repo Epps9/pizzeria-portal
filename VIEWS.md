@@ -46,6 +46,6 @@ w ostatniej kolumnie dostępne akcje dla danego stolika
 - `/kitchen`
 - wyświetla listę zamowień w kolejności ich złożenia
 - lista musi zawierać:
-  - numer stulika lub zamówienia zdalnego 
+  - numer stolika lub zamówienia zdalnego 
   - pełne informacje dotyczące zamówionych dań
 - na liście musi być możliwosć oznaczenia zamówienia jako zrealizowane
