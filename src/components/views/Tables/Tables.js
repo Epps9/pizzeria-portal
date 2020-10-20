@@ -21,12 +21,21 @@ const demoContent = [
 
 ];
 
-/*const findTable = (tableNumber, status, hour) => {
-  demoContent.map(tableNumber => {
-    
-    return status;
-  });
-};*/
+const findTable = (status) => {
+  // eslint-disable-next-line default-case
+  switch (status) {
+    case 'reservation' :
+      return (
+        <Button component={Link}> reservation  </Button>
+      );
+    case 'event' : 
+      return (
+        <Button component={Link}> event </Button>
+      );
+  }
+};
+
+
 
 const Tables = (id) => (
   <div className={styles.component}>
@@ -54,13 +63,13 @@ const Tables = (id) => (
                 {row.hour}
               </TableCell>
               <TableCell>
-                findTable()
+                {findTable(row.status)}
               </TableCell>
               <TableCell>
-                findTable()
+                {findTable(row.status)}
               </TableCell>
               <TableCell>
-                findTable()
+                {findTable(row.status)}
               </TableCell>
             </TableRow>
           ))}
@@ -77,4 +86,3 @@ Tables.propTypes = {
 };
 
 export default Tables;
-
