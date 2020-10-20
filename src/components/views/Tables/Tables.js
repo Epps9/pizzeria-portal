@@ -9,8 +9,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import { FormControl, Input, InputLabel} from '@material-ui/core';
-import Flatpickr from 'react-flatpickr';
+import { FormControl } from '@material-ui/core';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  DatePicker,
+  MuiPickersUtilsProvider,
+} from '@material-ui/pickers';
+
 
 
 const demoContent = [
@@ -41,10 +46,9 @@ const Tables = (id) => (
   <div className={styles.component}>
     <h2>Orders</h2>
     <FormControl className={styles.form}>
-      <InputLabel htmlFor="my-input">date </InputLabel>
-      <Input id="my-input" aria-describedby="my-helper-text">
-        <Flatpickr/>
-      </Input>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <DatePicker />
+      </MuiPickersUtilsProvider>   
     </FormControl> 
     <Paper className={styles.component}>
       <Table>
