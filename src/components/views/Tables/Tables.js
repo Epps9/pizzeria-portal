@@ -17,12 +17,11 @@ import {
 } from '@material-ui/pickers';
 
 
-
 const demoContent = [
-  {hour: '12:00', status: 'reservation', order: null, tableNumber: 'Table 1'},
-  {hour: '12:30', status: 'event', order: null, tableNumber: 'Table 2'},
-  {hour: '13:00', status: 'reservation', order: null, tableNumber: 'Table 3'},
-  {hour: '13:30', status: 'event', order: null, tableNumber: 'Table 2'},
+  {hour: '12:00', status: 'reservation', order: null, id:12, tableNumber: 'Table 1'},
+  {hour: '12:30', status: 'event', order: null, id:13, tableNumber: 'Table 2'},
+  {hour: '13:00', status: 'reservation', order: null, id:14, tableNumber: 'Table 3'},
+  {hour: '13:30', status: 'event', order: null, id:15, tableNumber: 'Table 2'},
 
 ];
 
@@ -31,11 +30,11 @@ const findTable = (status) => {
   switch (status) {
     case 'reservation' :
       return (
-        <Button component={Link}> reservation  </Button>
+        <Button component={Link} to={`${process.env.PUBLIC_URL}/orderId`}> orderId </Button>
       );
     case 'event' : 
       return (
-        <Button component={Link}> event </Button>
+        <Button component={Link} to={`${process.env.PUBLIC_URL}/eventId`}> eventId </Button>
       );
   }
 };
