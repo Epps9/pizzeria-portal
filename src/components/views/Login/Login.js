@@ -17,7 +17,7 @@ const Login = () => (
         <InputLabel htmlFor="my-input">Password</InputLabel>
         <Input id="my-input" aria-describedby="my-helper-text" />
       </FormControl>  
-      <Button className={styles.button} component={Link} to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>Log in</Button>
+      <Button className={styles.button} component={Link} to={`${process.env.PUBLIC_URL}/`} >Log in</Button>
     </Paper>
   </div>
 );

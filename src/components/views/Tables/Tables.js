@@ -18,10 +18,10 @@ import {
 
 
 const demoContent = [
-  {hour: '12:00', status: 'reservation', order: null, id:12, tableNumber: 'Table 1'},
-  {hour: '12:30', status: 'event', order: null, id:13, tableNumber: 'Table 2'},
-  {hour: '13:00', status: 'reservation', order: null, id:14, tableNumber: 'Table 3'},
-  {hour: '13:30', status: 'event', order: null, id:15, tableNumber: 'Table 2'},
+  {id: '1', hour: '12:00', status: 'reservation', order: null, tableNumber: 'Table 1'},
+  {id: '2', hour: '12:30', status: 'event', order: null,  tableNumber: 'Table 2'},
+  {id: '3', hour: '13:00', status: 'reservation', order: null,  tableNumber: 'Table 3'},
+  {id: '4', hour: '13:30', status: 'event', order: null, tableNumber: 'Table 2'},
 
 ];
 

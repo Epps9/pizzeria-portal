@@ -12,9 +12,9 @@ import Button from '@material-ui/core/Button';
 
 
 const demoContent = [
-  {hour: '12:05', orderId: 25, products: ['Coke ', 'Pizza'] },
-  {hour: '12:15', orderId: 70, products: ['Fanta ', 'Salad'] },
-  {hour: '12:30', orderId: 1, products: ['water ', 'Pasta'] },
+  {id: '1', hour: '12:05', orderId: 25, tableId: 1,  products: ['Coke ', 'Pizza'] },
+  {id: '2', hour: '12:15', orderId: 70, products: ['Fanta ', 'Salad'] },
+  {id: '3', hour: '12:30', orderId: 1, tableId: 3, products: ['water ', 'Pasta'] },
 ];
 
 const Kitchen = () => (
@@ -25,7 +25,8 @@ const Kitchen = () => (
         <TableHead>
           <TableRow>
             <TableCell>Order time</TableCell>
-            <TableCell>Table no./Order no.</TableCell>
+            <TableCell>Table</TableCell>
+            <TableCell>Order</TableCell>
             <TableCell>Ordered dishes</TableCell>
             <TableCell>Status</TableCell>
           </TableRow>
@@ -37,13 +38,16 @@ const Kitchen = () => (
                 {row.hour}
               </TableCell>
               <TableCell>
+                {row.tableId}
+              </TableCell>
+              <TableCell>
                 {row.orderId}
               </TableCell>
               <TableCell>
                 {row.products}
               </TableCell>
               <TableCell>
-                <Button component={Link}>
+                <Button component={Link} to={`${process.env.PUBLIC_URL}/`}>
                       done
                 </Button>
               </TableCell>

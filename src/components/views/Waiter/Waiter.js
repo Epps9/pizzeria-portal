@@ -10,12 +10,12 @@ import Button from '@material-ui/core/Button';
 
 
 const demoContent = [
-  {id: '1', status: 'free', hour: 12},
-  {id: '2', status: 'thinking', order: null},
-  {id: '3', status: 'ordered', order: 123},
-  {id: '4', status: 'prepared', order: 234},
-  {id: '5', status: 'delivered', order: 345},
-  {id: '6', status: 'paid', order: 456},
+  {id: '1', status: 'free', orderId: 12},
+  {id: '2', status: 'thinking', orderId: null},
+  {id: '3', status: 'ordered', orderId: 123},
+  {id: '4', status: 'prepared', orderId: 234},
+  {id: '5', status: 'delivered', orderId: 345},
+  {id: '6', status: 'paid', orderId: 456},
 ];
 
 const renderActions = status => {
@@ -75,9 +75,9 @@ const Waiter = () => (
                 {row.status}
               </TableCell>
               <TableCell>
-                {row.order && (
-                  <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                    {row.order}
+                {row.orderId && (
+                  <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.orderId}`}>
+                    {row.orderId}
                   </Button>
                 )}
               </TableCell>
