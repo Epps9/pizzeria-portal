@@ -1,6 +1,6 @@
 export const api = {
   url: '//' + window.location.hostname + (window.location.hostname==='localhost' ? ':3131' : ''),
-  tables: 'tables',
+  tables: 'api/tables',
   products: 'products',
   order: 'order',
   booking: 'booking',
@@ -10,3 +10,4 @@ export const api = {
   notRepeatParam: 'repeat=false',
   repeatParam: 'repeat_ne=false',
 };
+console.log('sdas', api.url);

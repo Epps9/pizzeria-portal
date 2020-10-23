@@ -124,9 +124,9 @@ class Waiter extends React.Component {
                     {row.status}
                   </TableCell>
                   <TableCell>
-                    {row.order && (
-                      <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                        {row.order}
+                    {row.orderId && (
+                      <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.orderId}`}>
+                        {row.orderId}
                       </Button>
                     )}
                   </TableCell>
