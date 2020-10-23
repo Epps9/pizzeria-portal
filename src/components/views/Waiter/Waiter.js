@@ -16,7 +16,7 @@ class Waiter extends React.Component {
       active: PropTypes.bool,
       error: PropTypes.oneOfType([PropTypes.bool,PropTypes.string]),
     }),
-    tables: PropTypes.object,
+    tables: PropTypes.any,
     changedStatus: PropTypes.func,
   }
 
@@ -54,29 +54,29 @@ class Waiter extends React.Component {
       case 'free':
         return (
           <>
-            <Button onChange={this.statusChanger(tableId, 'thinking')}>thinking</Button>
-            <Button>new order</Button>
+            <Button onClick={() => {this.statusChanger(tableId, status); }}>thinking</Button>
+            <Button onClick={() => {this.statusChanger(tableId, status); }}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button onChange={this.statusChanger(tableId, 'ordered')}>new order</Button>
+          <Button onClick={() => {this.statusChanger(tableId, status); }}>new order</Button>
         );
       case 'ordered':
         return (
-          <Button onChange={this.statusChanger(tableId, 'prepared')}>prepared</Button>
+          <Button onClick={() => {this.statusChanger(tableId, status); }}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button onChange={this.statusChanger(tableId, 'delivered')}>delivered</Button>
+          <Button onClick={() => {this.statusChanger(tableId, status); }}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button onChange={this.statusChanger(tableId, 'paid')}>paid</Button>
+          <Button onClick={() => {this.statusChanger(tableId, status); }}>paid</Button>
         );
       case 'paid':
         return (
-          <Button onChange={this.statusChanger(tableId, 'free')}>free</Button>
+          <Button onClick={() => {this.statusChanger(tableId, status); }}>free</Button>
         );
       default:
         return null;
@@ -115,7 +115,6 @@ class Waiter extends React.Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {/*eslint-disable-next-line react/prop-types*/}
               {tables.map(row => (
                 <TableRow key={row.id}>
                   <TableCell component="th" scope="row">

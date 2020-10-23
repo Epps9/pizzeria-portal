@@ -20,15 +20,15 @@ const CHANGE_STATUS = createActionName('CHANGE_STATUS');
 export const fetchStarted = payload => ({ payload, type: FETCH_START });
 export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
-const changedStatus = payload => ({payload, type: CHANGE_STATUS});
+const statusChange = payload => ({payload, type: CHANGE_STATUS});
 
 /* thunk creators */
 export const fetchFromAPI = () => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(fetchStarted());
   
     Axios
-      .get(`${api.url}/${api.tables}`)
+      .get(`${api.url}/api/${api.tables}`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })
@@ -38,15 +38,15 @@ export const fetchFromAPI = () => {
   };
 };
 
-export const fetchStatusChange = (tableId, newStatus) => {
-  return (dispatch, getState) => {
+export const changeApiStatus = (tableId, newStatus) => {
+  return (dispatch) => {
 
     Axios
-      .patch(`${api.url}/${api.tables}/${tableId}`, {
+      .put(`${api.url}/api/${api.tables}${tableId}`, {
         status: newStatus,
       })
       .then(res => {
-        dispatch(changedStatus(res.data));
+        dispatch(statusChange(res.data.status));
       });
   };
 };
