@@ -25,58 +25,59 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  statusChanger(tableId, status) {
-    if (status === 'free') {
-      return status = 'thinking';
+  statusChanger(row) {
+    if (row.status === 'free') {
+      row.status = 'thinking';
     }
-    else if (status === 'thinking') {
-      return status = 'ordered';
+    else if (row.status === 'thinking') {
+      row.status = 'ordered';
     }
-    else if (status === 'ordered') {
-      return status = 'prepared';
+    else if (row.status === 'ordered') {
+      row.status = 'prepared';
     }
-    else if (status === 'prepared') {
-      return status = 'delivered';
+    else if (row.status === 'prepared') {
+      row.status = 'delivered';
     }
-    else if (status === 'delivered') {
-      return status = 'paid';
+    else if (row.status === 'delivered') {
+      row.status = 'paid';
     }
-    else if (status === 'paid') {
-      return status = 'free';
+    else if (row.status === 'paid') {
+      row.status = 'free';
     }
     const { changedStatus } = this.props; 
-    changedStatus(tableId, status);
+    changedStatus(row);
   }
 
 
-  renderActions(tableId, status){
+  renderActions(row){
+    const status = row.status;
     switch (status) {
       case 'free':
         return (
           <>
-            <Button onClick={() => {this.statusChanger(tableId, status); }}>thinking</Button>
-            <Button onClick={() => {this.statusChanger(tableId, status); }}>new order</Button>
+            <Button onClick={() => {this.statusChanger(row); }}>thinking</Button>
+            <Button onClick={() => {this.statusChanger(row); }}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button onClick={() => {this.statusChanger(tableId, status); }}>new order</Button>
+          <Button onClick={() => {this.statusChanger(row); }}>new order</Button>
         );
       case 'ordered':
         return (
-          <Button onClick={() => {this.statusChanger(tableId, status); }}>prepared</Button>
+          <Button onClick={() => {this.statusChanger(row); }}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button onClick={() => {this.statusChanger(tableId, status); }}>delivered</Button>
+          <Button onClick={() => {this.statusChanger(row); }}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button onClick={() => {this.statusChanger(tableId, status); }}>paid</Button>
+          <Button onClick={() => {this.statusChanger(row); }}>paid</Button>
         );
       case 'paid':
         return (
-          <Button onClick={() => {this.statusChanger(tableId, status); }}>free</Button>
+          <Button onClick={() => {this.statusChanger(row); }}>free</Button>
         );
       default:
         return null;
@@ -134,7 +135,7 @@ class Waiter extends React.Component {
                     {row.tableId}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.tableId, row.status)}
+                    {this.renderActions(row)}
                   </TableCell>
                 </TableRow>
               ))}

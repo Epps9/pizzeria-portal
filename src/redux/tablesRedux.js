@@ -1,4 +1,3 @@
-import { DateRange } from '@material-ui/icons';
 import Axios from 'axios';
 import { api } from '../settings';
 
@@ -21,7 +20,7 @@ const CHANGE_STATUS = createActionName('CHANGE_STATUS');
 export const fetchStarted = payload => ({ payload, type: FETCH_START });
 export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
-const statusChange = payload => ({payload, type: CHANGE_STATUS});
+export const statusChange = payload => ({payload, type: CHANGE_STATUS});
 
 /* thunk creators */
 export const fetchFromAPI = () => {
@@ -39,15 +38,13 @@ export const fetchFromAPI = () => {
   };
 };
 
-export const changeApiStatus = (tableId, newStatus) => {
+export const changeApiStatus = (row) => {
   return (dispatch) => {
 
     Axios
-      .put(`${api.url}/api/${api.tables}${tableId}`, {
-        status: newStatus,
-      })
+      .put(`${api.url}/api/${api.tables}/${row.id}`, row)
       .then(res => {
-        dispatch(statusChange(res.data.status));
+        dispatch(statusChange(res.data));
       });
   };
 };
@@ -86,9 +83,16 @@ export default function reducer(statePart = [], action = {}) {
       };
     }
     case CHANGE_STATUS: {
+      const newData = statePart.data.map(function(element) {
+        if(element.id === action.payload.id) {
+          return action.payload;
+        } else {
+          return element;
+        }
+      });
       return {
         ...statePart,
-        status: action.payload, 
+        data: newData,
       };
     }
     default:
